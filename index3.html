@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account - Authentication Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle">
+            <i data-lucide="moon" class="icon"></i>
+        </button>
+
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Open Account</h1>
+                <p class="card-description">Please fill in all the required information to open your account</p>
+            </div>
+
+            <div class="card-content">
+                <form id="account-form" class="form">
+                    <!-- Personal Information Section -->
+                    <div class="section">
+                        <h3 class="section-title">Personal Information</h3>
+                        
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="name" class="label">Name *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="user" class="input-icon"></i>
+                                    <input type="text" id="name" name="name" placeholder="Enter your name" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="legal-name" class="label">Legal Name *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="scale" class="input-icon"></i>
+                                    <input type="text" id="legal-name" name="legal-name" placeholder="Enter your legal name" class="input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="age" class="label">Age *</label>
+                                <input type="number" id="age" name="age" min="18" max="100" placeholder="Enter your age" class="input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender" class="label">Gender *</label>
+                                <select id="gender" name="gender" class="select" required>
+                                    <option value="">Select your gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div class="section">
+                        <h3 class="section-title">Contact Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="email" class="label">Email Address *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="mail" class="input-icon"></i>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" class="input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address" class="label">Address *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="map-pin" class="input-icon textarea-icon"></i>
+                                <textarea id="address" name="address" placeholder="Enter your complete address" class="textarea" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAN Details Section -->
+                    <div class="section">
+                        <h3 class="section-title">PAN Details</h3>
+                        
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="pan-number" class="label">PAN Number *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="credit-card" class="input-icon"></i>
+                                    <input type="text" id="pan-number" name="pan-number" placeholder="ABCDE1234F" class="input" maxlength="10" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" style="text-transform: uppercase;" required>
+                                </div>
+                                <p class="input-hint">Format: ABCDE1234F</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pan-name" class="label">Name as per PAN *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="file-text" class="input-icon"></i>
+                                    <input type="text" id="pan-name" name="pan-name" placeholder="Enter name as per PAN card" class="input" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Account Details Section -->
+                    <div class="section">
+                        <h3 class="section-title">Bank Account Details</h3>
+                        
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="account-number" class="label">Account Number *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="landmark" class="input-icon"></i>
+                                    <input type="text" id="account-number" name="account-number" placeholder="Enter account number" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-account-number" class="label">Confirm Account Number *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="landmark" class="input-icon"></i>
+                                    <input type="text" id="confirm-account-number" name="confirm-account-number" placeholder="Re-enter account number" class="input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="account-holder-name" class="label">Account Holder Name *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="user" class="input-icon"></i>
+                                    <input type="text" id="account-holder-name" name="account-holder-name" placeholder="Enter account holder name" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bank-name" class="label">Bank Name *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="building-2" class="input-icon"></i>
+                                    <input type="text" id="bank-name" name="bank-name" placeholder="Enter bank name" class="input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="ifsc-code" class="label">IFSC Code *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="hash" class="input-icon"></i>
+                                    <input type="text" id="ifsc-code" name="ifsc-code" placeholder="ABCD0123456" class="input" maxlength="11" pattern="[A-Z]{4}0[A-Z0-9]{6}" style="text-transform: uppercase;" required>
+                                </div>
+                                <p class="input-hint">Format: ABCD0123456</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="branch-name" class="label">Branch Name *</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="map-pin" class="input-icon"></i>
+                                    <input type="text" id="branch-name" name="branch-name" placeholder="Enter branch name" class="input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="account-type" class="label">Account Type *</label>
+                            <select id="account-type" name="account-type" class="select" required>
+                                <option value="">Select account type</option>
+                                <option value="savings">Savings Account</option>
+                                <option value="current">Current Account</option>
+                                <option value="salary">Salary Account</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Upload Identity Proof Section -->
+                    <div class="section">
+                        <h3 class="section-title">Upload Identity Proof</h3>
+                        
+                        <div class="form-group">
+                            <label for="identity-proof-type" class="label">Select Identity Proof Type *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="shield" class="input-icon"></i>
+                                <select id="identity-proof-type" name="identity-proof-type" class="select select-with-icon" required>
+                                    <option value="">Choose identity proof document</option>
+                                    <option value="aadhaar">Aadhaar Card</option>
+                                    <option value="passport">Passport</option>
+                                    <option value="ration">Ration Card</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="identity-fields" class="identity-fields" style="display: none;">
+                            <!-- Dynamic fields will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Citizenship Declaration Section -->
+                    <div class="section">
+                        <h3 class="section-title">Citizenship Declaration</h3>
+                        
+                        <div class="declaration-box">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="citizenship" name="citizenship" class="checkbox" required>
+                                <div class="checkbox-content">
+                                    <label for="citizenship" class="checkbox-label">
+                                        <span class="checkbox-title">Indian Citizenship Declaration *</span>
+                                    </label>
+                                    <p class="checkbox-description">
+                                        I hereby declare that I am a citizen of India and all the information provided above is true and
+                                        accurate to the best of my knowledge. I understand that providing false information may result in
+                                        legal consequences.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="declaration-box">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="terms" name="terms" class="checkbox" required>
+                            <div class="checkbox-content">
+                                <label for="terms" class="checkbox-label">
+                                    <span class="checkbox-title">Terms and Conditions *</span>
+                                </label>
+                                <p class="checkbox-description">
+                                    I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button type="button" id="digilocker-btn" class="btn btn-digilocker">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" />
+                                <path d="M10 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" />
+                            </svg>
+                            <i data-lucide="download" class="btn-icon"></i>
+                            <span>Fetch from DigiLocker</span>
+                        </button>
+
+                        <button type="submit" id="register-btn" class="btn btn-primary" disabled>
+                            Register User
+                        </button>
+                    </div>
+
+                    <!-- Footer Note -->
+                    <div class="footer-note">
+                        <p>All fields marked with * are required. Please ensure all information is accurate before submitting.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

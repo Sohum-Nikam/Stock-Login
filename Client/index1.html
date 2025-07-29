@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login/Register</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+    body {
+      background: #333;
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-page {
+      width: 360px;
+      padding: 8% 0 0;
+      margin: auto;
+    }
+
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .form input {
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .form button {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      background: #333;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form button:hover {
+      background: #555;
+    }
+
+    .form .message {
+      margin: 15px 0 0;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .form .message a {
+      color: #333;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .form .register-form {
+      display: none;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="form">
+      <!-- Register Form -->
+      <form class="register-form" id="registerForm">
+        <input type="text" id="reg-name" placeholder="Name" />
+        <input type="password" id="reg-pass" placeholder="Password" />
+        <input type="email" id="reg-email" placeholder="Email address" />
+        <button type="button" onclick="validateRegister()">Create</button>
+        <p class="message">Already registered? <a id="show-login">Sign In</a></p>
+      </form>
+
+      <!-- Login Form -->
+      <form class="login-form" id="loginForm">
+        <input type="text" id="login-user" placeholder="Username" />
+        <input type="password" id="login-pass" placeholder="Password" />
+        <button type="button" onclick="validateLogin()">Login</button>
+        <p class="message">Not registered? <a id="show-register">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Form switching
+    const showRegister = document.getElementById('show-register');
+    const showLogin = document.getElementById('show-login');
+    const loginForm = document.querySelector('.login-form');
+    const registerForm = document.querySelector('.register-form');
+
+    showRegister.addEventListener('click', () => {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+    });
+
+    showLogin.addEventListener('click', () => {
+      registerForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    });
+
+    // Validation helpers
+    function validateLogin() {
+      const username = document.getElementById('login-user').value.trim();
+      const password = document.getElementById('login-pass').value.trim();
+
+      if (!username || !password) {
+        alert("Fill the credentials");
+        return;
+      }
+
+      // Basic validation: username must be at least 3 chars, password at least 4
+      if (username.length < 3 || password.length < 4) {
+        alert("Invalid credentials");
+        return;
+      }
+
+      // If validation passes, redirect
+      window.location.href = "index3.html";
+    }
+
+    function validateRegister() {
+      const name = document.getElementById('reg-name').value.trim();
+      const password = document.getElementById('reg-pass').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+
+      if (!name || !password || !email) {
+        alert("Fill the credentials");
+        return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (name.length < 3 || password.length < 4 || !emailPattern.test(email)) {
+        alert("Invalid credentials");
+        return;
+      }
+
+      // If validation passes, redirect
+      window.location.href = "index2.html";
+    }
+  </script>
+</body>
+</html>

@@ -296,6 +296,7 @@ document.head.appendChild(style);
 
 
 
+
 // Fetch API for DigiLocker integration
 // DigiLocker API Integration
 async function fetchDigiLockerData() {
@@ -303,7 +304,7 @@ async function fetchDigiLockerData() {
 
   // Form data
   const formData = new URLSearchParams();
-  formData.append("clientid", "MNRNJVXE");
+  formData.append("clientid", "623592478e938b8791c3");
   formData.append("hmac", "ffefff3ff158ecc5732b7c1e8ec7b40ccd659d1eb8b024aa0d8f16218fdec804");
   formData.append("ts", "1734934002"); // Ideally this should be generated dynamically
   formData.append("orgid", "001891");
@@ -323,13 +324,13 @@ async function fetchDigiLockerData() {
     }
 
     const data = await response.json();
-    console.log("✅ DigiLocker Data Fetched:", data);
+    console.log("DigiLocker Data Fetched:", data);
 
     // You can now insert data dynamically into your form fields
     populateFormWithDigiLockerData(data);
 
   } catch (error) {
-    console.error("❌ Error fetching from DigiLocker:", error);
+    console.error("Error fetching from DigiLocker:", error);
     alert("Failed to fetch from DigiLocker. Please try again later.");
   }
 }

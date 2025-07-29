@@ -238,14 +238,16 @@
 
                     <!-- Action Buttons -->
                     <div class="button-group">
-                        <button type="button" id="digilocker-btn" class="btn btn-digilocker">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" />
-                                <path d="M10 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" />
-                            </svg>
-                            <i data-lucide="download" class="btn-icon"></i>
-                            <span>Fetch from DigiLocker</span>
-                        </button>
+                        
+                        <button id="dl-launch" class="btn btn-digilocker">
+                            <i data-lucide="download"></i><span>Fetch from DigiLocker</span>
+                          </button>
+                          <script>
+                          document.getElementById('dl-launch').addEventListener('click', () => {
+                            window.open('/digilocker/auth', 'digilockerPopup', 'width=600,height=700');
+                          });
+                          window.dlCallback = function(response){ /* handled in backend */ };
+                          </script>
 
                         <button type="submit" id="register-btn" class="btn btn-primary" disabled>
                             Register User
@@ -260,6 +262,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="script.js"></script>

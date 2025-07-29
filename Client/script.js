@@ -304,7 +304,7 @@ async function fetchDigiLockerData() {
 
   // Form data
   const formData = new URLSearchParams();
-  formData.append("clientid", "623592478e938b8791c3");
+  formData.append("clientid", "QXA7E1028A");
   formData.append("hmac", "ffefff3ff158ecc5732b7c1e8ec7b40ccd659d1eb8b024aa0d8f16218fdec804");
   formData.append("ts", "1734934002"); // Ideally this should be generated dynamically
   formData.append("orgid", "001891");
@@ -408,7 +408,7 @@ function populateFormWithDigiLockerData(data) {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
-    const res = await fetch('http://localhost:3000/register', {
+    const res = await fetch('http://localhost:5000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
